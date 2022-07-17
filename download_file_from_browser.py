@@ -23,3 +23,5 @@ browser.open('https://demoqa.com/upload-download')
 browser.element("#downloadButton").click()
 time.sleep(1)
 assert os.path.getsize("tmp/sampleFile.jpeg") == 4096
+
+os.remove('tmp/SampleFile.jpeg')
