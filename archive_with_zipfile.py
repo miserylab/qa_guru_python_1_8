@@ -15,9 +15,13 @@ def dir_check():
 
 @pytest.fixture(scope='session')
 def file_remove():
+    if not os.path.exists('tmp'):
+        os.makedirs('tmp')
+    yield
     os.remove('./tmp/docs-pytest-org-en-latest.pdf')
     os.remove('./tmp/file_example_XLSX_50.xlsx')
     os.remove('./tmp/username.csv')
+    os.rmdir('tmp')
 
 
 def get_file_extension(filename):
